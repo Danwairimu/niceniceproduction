@@ -1,20 +1,22 @@
 body{
      display:flex;
-    background-color: coral;
+    background-image: url(../photos/mirror.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     font-family: serif;
     justify-content:center;
     text-align: center;
+    height: 90em;
 }
 .container {
-    display: flex;              
+    display: grid;              
     justify-content: center;   
     align-items: center;        
 }
-/* h1{
-    margin: 0 20px 0 0;        
-    padding: 20px;
-    font-size: 2em;
-} */
+h1{
+  color:blue;
+}
     
 
 .form{
@@ -23,7 +25,7 @@ body{
     border: wheat 4px ;
     justify-content: center;
     height: 20em;
-    background-color: #fff;
+    background-color:seashell;
      padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(24, 13, 13, 0.1);
