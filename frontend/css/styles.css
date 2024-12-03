@@ -93,7 +93,8 @@ footer {
 }
 
 #featured-songs div {
-    background-color: #fff;
+    background-color: #ecf0f1;
+    /* Softer background color */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
@@ -106,6 +107,12 @@ footer {
     transform: translateY(-5px);
     /* Hover effect */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+#featured-songs h3,
+#featured-songs p {
+    text-align: center;
+    /* Ensure center alignment for text inside the cards */
 }
 
 #featured-songs h3 {
@@ -135,7 +142,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: #fff;
+    background-color: #ecf0f1;
+    /* Softer background color */
     border-radius: 10px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -149,6 +157,9 @@ footer {
 
 #songs span {
     font-size: 16px;
+    text-align: center;
+    /* Ensure uniform alignment of artist names */
+    flex-grow: 1;
 }
 
 #songs button {
@@ -156,7 +167,8 @@ footer {
     color: #fff;
     padding: 8px 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
+    /* More rounded buttons */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -205,6 +217,7 @@ footer {
     border: none;
     padding: 15px;
     border-radius: 50%;
+    /* Keep rounded but add size */
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 50px;
