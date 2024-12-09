@@ -11,16 +11,17 @@ __pycache__/
 *.log
 *.pot
 *.pyc
-__pycache__
+__pycache__/
 db.sqlite3
-/media
-/static
+/media/
+/static/
 
 # Virtual environment
 venv/
 env/
 .venv/
 .virtualenv/
+myenv
 
 # VS Code
 .vscode/
@@ -50,3 +51,10 @@ dmypy.json
 
 # Windows
 Thumbs.db
+
+# Library directories (added to ignore lib directories and other packages)
+lib/
+lib64/
+
+# Node.js dependencies (if you're using node/npm alongside Django)
+node_modules/
