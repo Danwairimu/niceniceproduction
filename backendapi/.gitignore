@@ -23,6 +23,9 @@ env/
 .virtualenv/
 myenv
 
+# environment variables
+.env
+
 # VS Code
 .vscode/
 
