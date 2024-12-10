@@ -1,3 +1,4 @@
+ creds---github.com@ifconfigbrian
 Music App: Stream and Download Your Favorite Tracks
 
 This project provides a backend for a music application built with Django. It allows users to:
