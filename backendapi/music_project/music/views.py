@@ -5,7 +5,7 @@ from .models import Song
 from .serializers import SongSerializer
 
 class SongList(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         songs = Song.objects.all()
@@ -13,7 +13,7 @@ class SongList(APIView):
         return Response(serializer.data)
 
 class SongUpload(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
         serializer = SongSerializer(data=request.data)
@@ -23,7 +23,7 @@ class SongUpload(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class SongDownload(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, pk):
         try:
