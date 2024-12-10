@@ -1,0 +1,63 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.db
+*.sqlite3
+*.log
+
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+/media/
+/static/
+
+# Virtual environment
+venv/
+env/
+.venv/
+.virtualenv/
+myenv
+
+# environment variables
+.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Django migrations
+migrations/
+
+# Coverage reports
+.coverage
+*.cover
+*.py,cover
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# JWT Token
+*.key
+*.pem
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Library directories (added to ignore lib directories and other packages)
+lib/
+lib64/
+
+# Node.js dependencies (if you're using node/npm alongside Django)
+node_modules/

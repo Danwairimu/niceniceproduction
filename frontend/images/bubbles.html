@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musical Bubbles</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2a2d43, #0f0f1c); /* Dark, calming gradient */
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Scene, Camera, Renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Lighting
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(0, 10, 10);
+        scene.add(light);
+
+        // Background Texture
+        const textureLoader = new THREE.TextureLoader();
+        textureLoader.load('https://i.imgur.com/NFq1nXn.jpg', (texture) => {
+            scene.background = texture; // Add a dynamic or calming image
+        });
+
+        // Bubbles Array
+        const bubbles = [];
+        const bubbleGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+        const bubbleMaterial = new THREE.MeshStandardMaterial({
+            color: 0x00bfff,
+            emissive: 0x0066ff,
+            transparent: true,
+            opacity: 0.6,
+        });
+
+        // Generate bubbles
+        function createBubble() {
+            const bubble = new THREE.Mesh(bubbleGeometry, bubbleMaterial);
+            bubble.position.set((Math.random() - 0.5) * 20, 10, (Math.random() - 0.5) * 20); // Start at the top
+            bubble.scale.setScalar(Math.random() * 0.5 + 0.5); // Randomize size
+            scene.add(bubble);
+            bubbles.push(bubble);
+        }
+
+        // Create bubbles continuously
+        setInterval(createBubble, 300);
+
+        // Camera Position
+        camera.position.z = 15;
+
+        // Animate bubbles
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Move bubbles downward and remove when out of view
+            bubbles.forEach((bubble, index) => {
+                bubble.position.y -= 0.05;
+                if (bubble.position.y < -10) { // Bubble out of view
+                    scene.remove(bubble);
+                    bubbles.splice(index, 1);
+                }
+            });
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
