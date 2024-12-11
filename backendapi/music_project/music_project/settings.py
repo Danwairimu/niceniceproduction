@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os, environ
+from datetime import timedelta
 
 # Initialize environment variables
 env = environ.Env()
@@ -33,7 +34,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
 SECRET_KEY = 'kwh(bn8c@^f)-q%w77(_4c6-vfo1j%*pfkj&(h@cy(24n$6ha2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -54,19 +54,45 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-# Conditional settings for REST framework
-if DJANGO_ENV == 'development':
-    REST_FRAMEWORK = {
-        'DEFAULT_PERMISSION_CLASSES': [],  # No authentication required in development
-        'DEFAULT_AUTHENTICATION_CLASSES': (),
-    }
-else:
-    REST_FRAMEWORK = {
-        'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],  # Authentication required in production
-        'DEFAULT_AUTHENTICATION_CLASSES': (
-            'rest_framework_simplejwt.authentication.JWTAuthentication',
-        ),
-    }
+# # Conditional settings for REST framework
+# if DJANGO_ENV == 'development':
+#     REST_FRAMEWORK = {
+#         'DEFAULT_PERMISSION_CLASSES': [],  # No authentication required in development
+#         'DEFAULT_AUTHENTICATION_CLASSES': (),
+#     }
+# else:
+#     REST_FRAMEWORK = {
+#         # 'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],  # Authentication required in production
+#         # 'DEFAULT_AUTHENTICATION_CLASSES': (
+#         #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+#               'rest_framework.permissions.AllowAny
+        # 
+#         ),
+#     }
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         # Disable authentication temporarily, allow unauthenticated access
+#         'rest_framework.permissions.AllowAny',  # This line allows all users, even unauthenticated
+#     ],
+#     'DEFAULT_AUTHENTICATION_CLASSES': [],  # Empty list disables any authentication
+# }
+
+# # JWT Token Settings
+# if DJANGO_ENV == 'development':
+#     SIMPLE_JWT = {
+#         'ACCESS_TOKEN_LIFETIME': timedelta(days=30),  # Longer tokens in development
+#         'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
+#         'ROTATE_REFRESH_TOKENS': False,
+#         'BLACKLIST_AFTER_ROTATION': False,
+#     }
+# else:
+#     SIMPLE_JWT = {
+#         'ACCESS_TOKEN_LIFETIME': timedelta(days=30),  # Shorter tokens in production
+#         'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
+#         'ROTATE_REFRESH_TOKENS': False,
+#         'BLACKLIST_AFTER_ROTATION': False,
+#     }
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
