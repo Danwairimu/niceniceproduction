@@ -15,6 +15,7 @@ const apiRequest = async (url, method= 'GET', body=null, token=null) =>{
             url,
             headers,
             data: body,
+            withCredentials: true
         };
         const response = await axios(options);
         return response.data;//will return response directly

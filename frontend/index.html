@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music App</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="frontend/css/styles.css">
+
+    <!-- Load Axios first -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    
+    <!-- Main JS file -->
+    <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
     <div id="header"></div>
@@ -13,20 +18,18 @@
     <!-- Main Content -->
     <main>
         <section id="welcome">
-            <h1>Welcome to the Nice Nice Music</h1>
+            <h1>Welcome to Nice Nice Music</h1>
             <p>Stream and download your favorite tracks!</p>
         </section>
 
         <section id="featured">
-            <h2></h2>
+            <h2>Featured Songs</h2>
             <div id="featured-songs">
-                <!-- Songs will be here(dynamically) -->
+                <!-- Songs will be dynamically loaded here -->
             </div>
         </section>
     </main>
 
     <div id="footer"></div>
-
-    <script src="js/main.js"></script>
 </body>
 </html>
