@@ -1,8 +1,5 @@
 
-
 import { getSongs } from "./api.js";
-
-console.log('script read')
 
 document.addEventListener("DOMContentLoaded", async() =>{
     // load components
