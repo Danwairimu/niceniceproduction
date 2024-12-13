@@ -1,5 +1,6 @@
 const API_BASE_URL = 'http://localhost:8000/api';
 
+console.log('script read')
 // helper function for handling API requests
 const apiRequest = async (url, method= 'GET', body=null, token=null) =>{
     const headers={
@@ -26,7 +27,7 @@ const apiRequest = async (url, method= 'GET', body=null, token=null) =>{
 };
 // get list of songs
 export const getSongs = async(token) =>{
-    const url = `${API_BASE_URL}/songs`;
+    const url = `${API_BASE_URL}/songs/`;
     return await apiRequest(url, 'GET', null, token);
 }
 // upload a song
