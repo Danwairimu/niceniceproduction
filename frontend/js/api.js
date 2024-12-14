@@ -1,6 +1,5 @@
 const API_BASE_URL = 'http://localhost:8000/api';
 
-console.log('script read')
 // helper function for handling API requests
 const apiRequest = async (url, method= 'GET', body=null, token=null) =>{
     const headers={

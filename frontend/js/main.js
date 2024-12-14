@@ -1,4 +1,3 @@
-
 import { getSongs } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", async() =>{
